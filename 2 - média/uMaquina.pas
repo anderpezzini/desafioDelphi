@@ -1,0 +1,39 @@
+unit uMaquina;
+
+interface
+
+uses
+  uTroco,
+  uIMaquina,
+  Classes;
+
+type
+
+  TMaquina = class(TInterfacedObject, IMaquina)
+  public
+    function MontarTroco(aTroco: Double): TList;
+  end;
+
+implementation
+
+function TMaquina.MontarTroco(aTroco: Double): TList;
+var             
+  Cedula: TCedula;
+  I,
+  Qtde: Integer;
+begin
+  Result := TList.Create;
+  for I := 0 to Length(CValorCedula)-1 do
+  begin
+    Cedula := TCedula(I);
+    Qtde := Trunc(aTroco / CValorCedula[cedula]);
+    if qtde > 0 then
+    begin
+      aTroco := aTroco - (Qtde * CValorCedula[Cedula]);
+      Result.Add(TTroco.Create(Cedula, Qtde));
+    end;
+  end;
+end;
+
+end.
+

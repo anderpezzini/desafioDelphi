@@ -1,0 +1,31 @@
+unit uMemo;
+
+interface
+
+uses
+  uComponente;
+
+type
+
+  TMemo = class(TComponente)  
+  protected
+    procedure RedimensionarAltura(aProporcao: Double); override;
+    procedure RedimensionarLargura(aProporcao: Double); override;
+  end;
+
+implementation      
+
+procedure TMemo.RedimensionarAltura(aProporcao: Double);
+begin
+  inherited;
+  Altura := Round(Altura * aProporcao);
+end;
+
+procedure TMemo.RedimensionarLargura(aProporcao: Double);
+begin
+  inherited;
+  Largura := Round(Largura * aProporcao);
+end;
+
+end.
+
